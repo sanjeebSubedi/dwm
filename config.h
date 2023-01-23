@@ -3,10 +3,10 @@
 /* Constants */
 #define TERMINAL "st"
 #define TERMCLASS "St"
-#define BROWSER "librewolf"
+#define BROWSER "google-chrome-stable"
 
 /* appearance */
-static unsigned int borderpx  = 3;        /* border pixel of windows */
+static unsigned int borderpx  = 2;        /* border pixel of windows */
 static unsigned int snap      = 32;       /* snap pixel */
 static unsigned int gappih    = 20;       /* horiz inner gap between windows */
 static unsigned int gappiv    = 10;       /* vert inner gap between windows */
@@ -16,12 +16,12 @@ static int swallowfloating    = 0;        /* 1 means swallow floating windows by
 static int smartgaps          = 0;        /* 1 means no outer gap when there is only one window */
 static int showbar            = 1;        /* 0 means no bar */
 static int topbar             = 1;        /* 0 means bottom bar */
-static char *fonts[]          = { "monospace:size=10", "NotoColorEmoji:pixelsize=10:antialias=true:autohint=true"  };
+static char *fonts[]          = { "monospace:size=10", "NotoColorEmoji:pixelsize=10:antialias=true:autohint=true", "Symbols Nerd Font Mono:size=10"  };
 static char normbgcolor[]           = "#222222";
-static char normbordercolor[]       = "#444444";
+static char normbordercolor[]       = "#0a0b42";
 static char normfgcolor[]           = "#bbbbbb";
 static char selfgcolor[]            = "#eeeeee";
-static char selbordercolor[]        = "#770000";
+static char selbordercolor[]        = "#0a0b42";
 static char selbgcolor[]            = "#005577";
 static char *colors[][3] = {
        /*               fg           bg           border   */
@@ -34,7 +34,7 @@ typedef struct {
 	const void *cmd;
 } Sp;
 const char *spcmd1[] = {TERMINAL, "-n", "spterm", "-g", "120x34", NULL };
-const char *spcmd2[] = {TERMINAL, "-n", "spcalc", "-f", "monospace:size=16", "-g", "50x20", "-e", "bc", "-lq", NULL };
+const char *spcmd2[] = {TERMINAL, "-n", "spcalc", "-f", "jetbrains mono:size=16", "-g", "50x20", "-e", "bc", "-lq", NULL };
 static Sp scratchpads[] = {
 	/* name          cmd  */
 	{"spterm",      spcmd1},
@@ -211,7 +211,7 @@ static Key keys[] = {
 	/* { MODKEY|ShiftMask,		XK_z,		spawn,		SHCMD("") }, */
 	{ MODKEY,			XK_x,		incrgaps,	{.i = -3 } },
 	/* { MODKEY|ShiftMask,		XK_x,		spawn,		SHCMD("") }, */
-	{ MODKEY,			XK_c,		spawn,		{.v = (const char*[]){ TERMINAL, "-e", "profanity", NULL } } },
+	{ MODKEY,			XK_c,		spawn,		{.v = (const char*[]){ TERMINAL, "-z", "14", "-f", "MonoLisa", "-e", "lvim", NULL } } },
 	/* { MODKEY|ShiftMask,		XK_c,		spawn,		SHCMD("") }, */
 	/* V is automatically bound above in STACKKEYS */
 	{ MODKEY,			XK_b,		togglebar,	{0} },
